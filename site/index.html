@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subNautSite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e3a5f; /* Cor azul marinho */
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-box {
+            width: 300px;
+            padding: 15px;
+            background-color: rgb(20, 149, 224);
+            color: black;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-box:hover {
+            transform: scale(1.05);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Vinheta azul sólida */
+        .wave {
+            position: fixed;
+            top: 0;
+            left: -300%;
+            width: 300%;
+            height: 100%;
+            background: linear-gradient(135deg, #0077b6, #00a8e8); /* Tons de azul oceânico */
+            z-index: 999;
+            transition: left 0.8s ease-in-out;
+            border-radius: 0 40dvh 40dvh 0; /* Dá um efeito de onda na entrada */
+        }
+    </style>
+</head>
+<body>
+    <div class="wave" id="wave"></div> <!-- Vinheta azul -->
+
+    <div class="container">
+        <img src="LogoPrincipal-removebg-preview.png" alt="Logo" width="200">
+        <h1 style = "color:black;"><b>SUBNAUT SITE</b></h1>
+
+        <h2 style ="color: black;">Vida Marinha</h2>
+        <p style = "color: black;"><b>Este é um site educativo sobre o ecossistema marinho. Aqui estão alguns tópicos que vamos destacar:</b></p>
+
+        <div class="link-container">
+            <a href="page2.html" class="link-box" onclick="showWave(event)">Importância do ecossistema marinho</a>
+            <a href="page1.html" class="link-box" onclick="showWave(event)">Impactos ambientais</a>
+            <a href="page3.html" class="link-box" onclick="showWave(event)">Como podemos contribuir para a vida marinha?</a>
+        </div>
+    </div>
+
+    <script>
+        function showWave(event) {
+            event.preventDefault(); // Impede o link de carregar imediatamente
+            let wave = document.getElementById("wave");
+            wave.style.left = "0"; // Move a vinheta para cobrir a tela
+
+            setTimeout(() => {
+                window.location.href = event.target.href; // Redireciona após a animação
+            }, 800); // Tempo da transição
+        }
+    </script>
+</body>
+</html>
